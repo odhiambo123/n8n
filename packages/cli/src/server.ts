@@ -69,6 +69,7 @@ import '@/evaluation.ee/test-definitions.controller.ee';
 import '@/evaluation.ee/test-runs.controller.ee';
 import '@/workflows/workflow-history.ee/workflow-history.controller.ee';
 import '@/workflows/workflows.controller';
+import '@/webhooks/webhooks.controller';
 
 @Service()
 export class Server extends AbstractServer {
@@ -123,6 +124,7 @@ export class Server extends AbstractServer {
 
 		if (this.globalConfig.nodes.communityPackages.enabled) {
 			await import('@/controllers/community-packages.controller');
+			await import('@/controllers/community-node-types.controller');
 		}
 
 		if (inE2ETests) {
